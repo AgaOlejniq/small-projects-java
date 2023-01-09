@@ -1,0 +1,18 @@
+public class LetterCounter {
+
+  public static void main(String[] args)
+        throws java.io.IOException{
+
+        char ch;
+        int counter = 0;
+
+        System.out.print("\nCharacter counter:");
+        System.out.print("\nType some sentence, and I'll count the letters.\n");
+        do{
+            ch = (char) System.in.read();
+            if (ch != ' ' && ch != '.' && ch != '\n') counter ++;
+        }while (ch != '\n');
+
+        System.out.print("Number of letters in your sentence: " + counter);
+    }
+}
