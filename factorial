@@ -1,0 +1,48 @@
+class Factorial {
+    int number;
+    int result;
+
+    int factR (int number) {
+        if (number == 1){
+            result = 1;
+            return result;
+        }
+        result = factR(number - 1) * number;
+        return result;
+    }
+    int factI (int number) {
+        int result = 1;
+        for (int i = 1; i < number; i++) result = number * i;
+        return result;
+    }
+}
+
+class RecOrItr {
+    public static void main(String[] args) {
+        boolean flag = true;
+        Factorial f = new Factorial();
+        Scanner user = new Scanner(System.in);
+
+        System.out.println("Give me number and I'll return it's factor." +
+                "\nChoose a method: \n1.\tRecursively \n2.\tIteratively \n*\t(0 to exit)");
+
+        while (flag) {
+            System.out.print("Your number: ");
+            int number = user.nextInt();
+            System.out.print("Method: ");
+            int choice = user.nextInt();
+
+            switch (choice) {
+                case 0:
+                    flag = false;
+                    break;
+                case 1:
+                    System.out.println(number + "! = " + f.factR(number));
+                    break;
+                case 2:
+                    System.out.println(number + "! = " + f.factI(number));
+                    break;
+            }
+        }
+    }
+}
